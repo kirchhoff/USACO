@@ -8,6 +8,9 @@
 using namespace std;
 int main(int argc, char *argv[])
 {
-
+     int N=29;
+     // cin>>N;
+     
+     
      return 0;
 }
