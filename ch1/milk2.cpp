@@ -6,15 +6,20 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
+#define DEBUG
+
 using namespace std;
 int a[1000001];
 int main(int argc, char *argv[])
 {
-     freopen("milk2.in","r",stdin);
-     reopen("milk2.out","w",stdout);
+     #ifdef DEBUG
+      freopen("milk2.in","r",stdin);
+     freopen("milk2.out","w",stdout);
+     #endif
      
      int N;
      cin>>N;
+     // cout<<"N is "<<N<<endl;
      memset(a, 0, sizeof(int)*1000001);
      int c,b;
      int k=0;
@@ -34,9 +39,13 @@ int main(int argc, char *argv[])
      int min=0;
      int tmp_max=0;
      int tmp_min=0; 
-     //cout<<p<< ' '<<q<<endl;
      int tmp=a[p];
-     for(int i=p+1;i<=q;++i)
+     if(tmp==1)tmp_max=1;
+     else
+          tmp_min=1;
+     // for(int i=p;i<q;++i)
+     //    cout<<a[i]<<endl;
+     for(int i=p+1;i<q;++i)
      {
           if(a[i]==tmp&&tmp==1)
           {
@@ -49,17 +58,23 @@ int main(int argc, char *argv[])
                if(tmp_min>min)min=tmp_min;
           }
           else if(a[i]!=tmp&&a[i]==0)
-          
-              tmp_max=0;
+          {
+               tmp_max=0;
                tmp=a[i];
+               tmp_min=1;
+               if(tmp_min>min)min=tmp_min;
           }
           else if(a[i]!=tmp&&a[i]==1)
           {
                tmp_min=0;
                tmp=a[i];
+               tmp_max=1;
+               if(tmp_max>max)max=tmp_max;
           }
      }
-     cout<<max+1<<" "<<min<<endl;     
+     //  if(tmp_min>min)min=tmp_min;
+     //         if(tmp_max>max)max=tmp_max;
+     cout<<max<<" "<<min<<endl;     
      
      return 0;
 }
