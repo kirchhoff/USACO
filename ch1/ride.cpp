@@ -1,10 +1,11 @@
 /*
-ID:twd30651 
+ID:twd30651
 PROG:ride
 LANG:C++
 */
 #include <iostream>
 #include <fstream>
+
 using namespace std;
 int func(char *s)
 {
@@ -30,7 +31,7 @@ int main()
         cout<<"STAY"<<endl;
     return 0;
 }
-/*  
+/*
 Executing...
 Test 1: TEST OK [0.011 secs, 3372 KB]
 Test 2: TEST OK [0.011 secs, 3372 KB]

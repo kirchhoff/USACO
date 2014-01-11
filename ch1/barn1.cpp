@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
           cin>>tmp;
           cows.push_back(tmp);
      }
+     sort(cows.begin(),cows.end(),less<int>());
      int sum=cows[cows.size()-1]-cows[0]+1;
      for(int i=1;i<cows.size();++i)
      {
