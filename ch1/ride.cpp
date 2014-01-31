@@ -5,14 +5,13 @@ LANG:C++
 */
 #include <iostream>
 #include <fstream>
-
 using namespace std;
 int func(char *s)
 {
     int ans = 1;
     while(*s)
     {
-        ans*=*s-('A'-1);
+        ans*=*s-'A'+1;
         ans%=47;
         s++;
     }
